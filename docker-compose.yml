@@ -14,7 +14,7 @@ services:
       - node-react-starter-network
 
   node-react-starter-app:
-    image: thisk8brd/node-react-starter-app
+    image: thisk8brd/node-react-starter-app:dev
     build: 
       context: .
       target: dev
