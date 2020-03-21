@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "npm run start --prefix client",
-    "server": "nodemon --nolazy --inspect-brk=9229 index.js",
+    "server": "nodemon index.js",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "prestart": "npm run build --prefix client",
     "start": "node index.js"
   },
   "keywords": [],
