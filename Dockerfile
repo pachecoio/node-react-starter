@@ -1,10 +1,7 @@
-FROM node as dev
-
-EXPOSE 5000 3000
+# PROD CONFIG
+FROM node as prod
 
 WORKDIR /app
-
-RUN npm install -g nodemon
 
 COPY package*.json ./
 
@@ -20,13 +17,19 @@ WORKDIR /app
 
 COPY . .
 
-ENV NODE_ENV=development
-
-CMD [ "npm", "run", "dev" ]
-
-# PROD CONFIG
-FROM dev as prod
-
 ENV NODE_ENV=production
 
 CMD [ "npm", "start" ]
+
+# DEV CONFIG
+# FROM prod as dev
+
+# EXPOSE 5000 3000
+
+# ENV NODE_ENV=development
+
+# RUN npm install -g nodemon
+
+# RUN npm install --only=dev
+
+# CMD [ "npm", "run", "dev" ]
