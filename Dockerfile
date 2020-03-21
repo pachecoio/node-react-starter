@@ -22,14 +22,14 @@ ENV NODE_ENV=production
 CMD [ "npm", "start" ]
 
 # DEV CONFIG
-# FROM prod as dev
+FROM prod as dev
 
-# EXPOSE 5000 3000
+EXPOSE 5000 3000
 
-# ENV NODE_ENV=development
+ENV NODE_ENV=development
 
-# RUN npm install -g nodemon
+RUN npm install -g nodemon
 
-# RUN npm install --only=dev
+RUN npm install --only=dev
 
-# CMD [ "npm", "run", "dev" ]
+CMD [ "npm", "run", "dev" ]
