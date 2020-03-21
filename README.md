@@ -19,12 +19,22 @@ or
 npm install
 ```
 
-### Running the application
-
-*To run this application, you must have MongoDB up and running*
+### Running the Dev container
 
 To run the application, use the following command:
 
 ```
-$ npm run dev
+$ docker-compose up
+```
+
+The frontend will be running at http://localhost:3000
+
+The backend will be running at http://localhost:5000
+
+### Running the Prod test container
+
+To run the application, use the following command:
+
+```
+$ docker-compose -f docker-compose-test-prod.yml up
 ```
