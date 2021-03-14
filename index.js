@@ -1,16 +1,23 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
+var cors = require('cors');
 
 // IMPORT MODELS
 require('./models/Product');
+
 
 const app = express();
 
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost:27017/node-react-starter`);
 
-app.use(bodyParser.json());
+app.use(express.static('public'))
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cors()) // Use this after the variable declaration
+
+
 
 //IMPORT ROUTES
 require('./routes/productRoutes')(app);
@@ -20,6 +27,7 @@ if (process.env.NODE_ENV === 'production') {
 
   const path = require('path');
   app.get('*', (req,res) => {
+      res.header("Access-Control-Allow-Origin", "*");
       res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
   })
 
