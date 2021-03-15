@@ -1,5 +1,5 @@
 const axios = require('axios')
-const endPoint = 'http://localhost:5000/api/product';
+const endPoint = 'http://localhost:5000/api/product/add';
 
 export default async (name, desc)=>{
   await axios
