@@ -1,0 +1,12 @@
+[
+    {
+        "course_id": "CS327",
+        "name": "Compiler Design",
+        "prof_id": "12345"
+    },
+    {
+        "course_id": "CS328",
+        "name": "Intro to Data Science",
+        "prof_id": "12346"
+    }
+]

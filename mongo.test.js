@@ -34,6 +34,6 @@ async function main(){
     };
     // console.log(await Students.find());
     
-    return process.exit(1);
+    return process.exit(0);
 }
 main();
