@@ -28,3 +28,6 @@ To run the application, use the following command:
 ```
 $ npm run dev
 ```
+
+## How to test using `mongo.test.js`
+ - `node mongo.test.js`

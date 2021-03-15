@@ -14,16 +14,20 @@ mongoose.model('Students', productSchema);
 const Students = mongoose.model('Students');
 
 async function main(){
+    let name = "Anupam";
+    let age = 21;
+
     await Students.create({
-        name: "Anupam",
-        age: 21
+        name: name,
+        age: age
     });
+    console.log(await Students.find());
     
-    ret = await Students.find();
-    console.log(ret);
-    // product = await Product.findByIdAndUpdate(id, req.body);
-    // product = await Product.findByIdAndDelete(id);
-    // product = await Product.remove({name: req.body.name})
+    await Students.deleteOne({name})
+    console.log(await Students.find());
+
+    // product = await Students.findByIdAndUpdate(id, req.body);
+    // product = await Students.findByIdAndDelete(id);
 
     return process.exit(1);
 }
