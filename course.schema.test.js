@@ -1,3 +1,4 @@
+// Connecting mongoose to MongoDB
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost:27017/test-database`, {
@@ -8,17 +9,16 @@ mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost:27017/test-data
 });
 
 // Creating schema
-const {Schema} = mongoose;
-const courseSchema = new Schema(
+mongoose.model('courses', new mongoose.Schema(
     {
         course_id: {type: String, minLength: 5, maxLength: 5, unique: true, },
         name: {type: String, minLength: 5, maxLength: 100, unique: true},
         prof_id: {type: String, minLength: 5, maxLength: 5}
     },
     {versionKey: false}
-);
+));
 
-mongoose.model('courses', courseSchema);
+// The main schema object which we will use to query
 const Courses = mongoose.model('courses');
 
 // Adding and deleting
@@ -27,7 +27,7 @@ async function main(){
     await Courses.deleteMany({});
 
     // Inserting some data values
-    data = require("./initial.Courses.json");
+    data = require("./initData/initial.courses.json");
     for(i=0; i<data.length; i++){
         await Courses.create({
             course_id: data[i].course_id,
@@ -38,7 +38,7 @@ async function main(){
 
     // Showing values
     console.log(await Courses.find());
-    
+
     // if((await Students.find({name: "Hacker"})).length == 1){
     //     console.log("Element found. Deleting now.");
     //     await Students.deleteOne({name: "Hacker"})
