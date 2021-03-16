@@ -35,43 +35,58 @@ function App() {
   async function addProduct(e){
     e.preventDefault();
     await addProductReq(name, desc);
+    
     console.log(name, desc);
+    await getProducts();
   }
   
   async function deleteProduct(e){
     e.preventDefault();
     console.log("Delete function() call with name: ", Dname);
     await deleteProductReq(Dname);
+    await getProducts();
   }
 
   
 
   return (
-    <div className="App">
-      <ul className="list">
-        {(products && products.length > 0) ? (
-          products.map(product => renderProduct(product))
-        ) : (
-          <p>No products found</p>
-        )}
-      </ul>
+    <div className="App m-5">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+      <h1 align="center" className="page-header jumbotron">MERN based Product Database</h1>
+      <div style={{border: "0.2em solid red", borderRadius: "1em", padding: "0.5em", marginBottom: "2em"}}>
+        <ul className="list">
+          
+          {(products && products.length > 0) ? (
+            products.map(product => renderProduct(product))
+            ) : (
+              <p>No products found</p>
+              )}
+        </ul>
+      </div>
 
-      <form onSubmit={addProduct}>
-        <h2>Add a new product</h2>
-        <label>Name: <input onChange={e=>setname(e.target.value)} type="text" name="name"/></label>
-        <br />
-        <label>Description: <input onChange={e=>setdesc(e.target.value)} type="text" name="desc"/></label>
-        <br />
-        <input type="submit" value="Submit"/>
-      </form>
+      <div className="container">
+        <div className="row">
+          <form className="mx-3" onSubmit={addProduct}>
+            <h2>Add a new product</h2>
+            <label>Name: <input onChange={e=>setname(e.target.value)} type="text" name="name"/></label>
+            <br />
+            <label>Description: <input onChange={e=>setdesc(e.target.value)} type="text" name="desc"/></label>
+            <br />
+            <input type="submit" className="btn btn-primary" value="Submit"/>
+          </form>
+        
+          <form className="mx-3" onSubmit={deleteProduct}>
+            <h2>Delete an existing product</h2>
+            <br />
+            <label>Name: <input onChange={e=>setDname(e.target.value)} type="text" name="desc"/></label>
+            <br />
+            <input type="submit" className="btn btn-primary" value="Submit"/>
+          </form>
+        
+        </div>
+      </div>
 
-      <form onSubmit={deleteProduct}>
-        <h2>Delete an existing product</h2>
-        <br />
-        <label>Name: <input onChange={e=>setDname(e.target.value)} type="text" name="desc"/></label>
-        <br />
-        <input type="submit" value="Submit"/>
-      </form>
+
     </div>
   );
 }

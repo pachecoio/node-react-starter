@@ -1,33 +1,14 @@
-# node-react-starter
+# Simple MERN based Product application
+## Description
 A simple fullstack starter application using Node.js, Express.js, React.js and MongoDB
 
-To run this project you need to add the backend and frontend dependencies.
-In the root of the project run the following command
+## Features
+ - **ADD()**
+ - **DELETE()**
 
-```
-$ npm install
-```
+## Demo
+<img src="./.images/front.png" width=600 />
 
-Then, navigate to the client directory and run the following command:
-
-```
-recommended
-$ yarn
-```
-or
-```
-npm install
-```
-
-### Running the application
-
-*To run this application, you must have MongoDB up and running*
-
-To run the application, use the following command:
-
-```
-$ npm run dev
-```
-
-## How to test using **course**
- - `node course.schema.test.js`
+## How to run?
+ - `yarn; cd client; yarn; cd ..`
+ - `yarn dev`
