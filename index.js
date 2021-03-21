@@ -20,8 +20,7 @@ app.use(express.static('public'))
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors()) // Use this after the variable declaration
-
+app.user(cors({credentials: true, origin: true})); // Use this after the variable declaration
 
 //IMPORT ROUTES
 require('./routes/routes')(app);

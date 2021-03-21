@@ -8,9 +8,7 @@
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.2",
     "react-dom": "^17.0.1",
-    "react-scripts": "^4.0.3",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d build"
+    "react-scripts": "^4.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
