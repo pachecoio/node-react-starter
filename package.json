@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://github.com/akcgjc007/MERN-App",
   "scripts": {
     "start": "node index.js",
     "client": "yarn --cwd client start",
