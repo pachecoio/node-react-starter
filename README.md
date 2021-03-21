@@ -1,16 +1,18 @@
 # Simple MERN based Product application
-## Deployments
- - [Vercel](https://mern-app-akcgjc007.vercel.app/)
+## Vercel deployments
+ - [**mern-app-five.vercel.app**](mern-app-five.vercel.app)
+ - [**mern-app-git-master-akcgjc007.vercel.app**](mern-app-git-master-akcgjc007.vercel.app)
+ - [**mern-app-akcgjc007.vercel.app**](mern-app-akcgjc007.vercel.app)
 ## Description
 A simple fullstack starter application using:
- - MongoDB
- - Express.js
- - Node.js
- - React.js
+ - **MongoDB**
+ - **Express.js**
+ - **Node.js**
+ - **React.js**
 
 ## Features
- - **ADD()**
- - **DELETE()**
+ - Add a product
+ - Delete a product
 
 ## Demo
 <img src="./images/2.png" width=600 />

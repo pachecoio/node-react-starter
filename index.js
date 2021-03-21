@@ -16,11 +16,13 @@ mongoose.connect(key, {
     useFindAndModify: false,
     useCreateIndex: true
 });
+
 app.use(express.static('public'))
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.user(cors({credentials: true, origin: true})); // Use this after the variable declaration
+
+app.use(cors({credentials: true, origin: true})); // Use this after the variable declaration
 
 //IMPORT ROUTES
 require('./routes/routes')(app);
