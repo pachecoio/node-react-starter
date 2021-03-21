@@ -1,9 +1,9 @@
+import url from './url';
 const axios = require('axios')
-const endPoint = 'http://localhost:5000/api/product/remove';
 
 export default async (name)=>{
   await axios
-    .post(endPoint, {
+    .post(url+`/api/product/remove`, {
       "name": name,
     })
     .then(res => {

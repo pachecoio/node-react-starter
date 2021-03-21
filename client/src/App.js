@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-// SERVICES
-import productService from './services/productService';
-import addProductReq from './req/addProductReq'
-import deleteProductReq from './req/deleteProductReq'
-
+// requests
+import productService from "./req/loadAll";
+import addProductReq from "./req/addProductReq";
+import deleteProductReq from "./req/deleteProductReq";
+import { Form, Button, Col } from "react-bootstrap";
 function App() {
   const [products, setproducts] = useState(null);
   const [name, setname] = useState(null);
@@ -12,81 +12,93 @@ function App() {
   const [Dname, setDname] = useState(null);
 
   useEffect(() => {
-    if(!products) {
+    if (!products) {
       getProducts();
     }
-  })
+  });
 
   const getProducts = async () => {
     let res = await productService.getAll();
     console.log(res);
     setproducts(res);
-  }
+  };
 
-  const renderProduct = product => {
+  const renderProduct = (product) => {
     return (
-      <li key={product._id} className="list__item product">
+      <li key={product._id} className="list__item product col-3">
         <h3 className="product__name">{product.name}</h3>
         <p className="product__description">{product.description}</p>
       </li>
     );
   };
 
-  async function addProduct(e){
+  async function addProduct(e) {
     e.preventDefault();
     await addProductReq(name, desc);
-    
+
     console.log(name, desc);
     await getProducts();
   }
-  
-  async function deleteProduct(e){
+
+  async function deleteProduct(e) {
     e.preventDefault();
     console.log("Delete function() call with name: ", Dname);
     await deleteProductReq(Dname);
     await getProducts();
   }
 
-  
-
   return (
-    <div className="App m-5">
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-      <h1 align="center" className="page-header jumbotron">MERN based Product Database</h1>
-      <div style={{border: "0.2em solid red", borderRadius: "1em", padding: "0.5em", marginBottom: "2em"}}>
-        <ul className="list">
-          
-          {(products && products.length > 0) ? (
-            products.map(product => renderProduct(product))
-            ) : (
-              <p>No products found</p>
-              )}
-        </ul>
+    <div className="text-center App m-5">
+      <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      />
+      <h1 align="center" className="page-header jumbotron">
+        MERN based Product Database
+      </h1>
+
+      <div className="row pb-5">
+        {products && products.length > 0 ? (
+          products.map((product) => renderProduct(product))
+        ) : (
+          <div class="display-4 mx-auto alert alert-danger" role="alert">
+            No product found
+          </div>
+        )}
       </div>
 
       <div className="container">
         <div className="row">
-          <form className="mx-3" onSubmit={addProduct}>
+          <div className="col">
             <h2>Add a new product</h2>
-            <label>Name: <input onChange={e=>setname(e.target.value)} type="text" name="name"/></label>
-            <br />
-            <label>Description: <input onChange={e=>setdesc(e.target.value)} type="text" name="desc"/></label>
-            <br />
-            <input type="submit" className="btn btn-primary" value="Submit"/>
-          </form>
-        
-          <form className="mx-3" onSubmit={deleteProduct}>
-            <h2>Delete an existing product</h2>
-            <br />
-            <label>Name: <input onChange={e=>setDname(e.target.value)} type="text" name="desc"/></label>
-            <br />
-            <input type="submit" className="btn btn-primary" value="Submit"/>
-          </form>
-        
+            <Form className="mx-5" onSubmit={addProduct}>
+              Name
+              <Form.Group onChange={(e) => setname(e.target.value)} as={Col}>
+                <Form.Control />
+              </Form.Group>
+              Description
+              <Form.Group onChange={(e) => setdesc(e.target.value)} as={Col}>
+                <Form.Control />
+              </Form.Group>
+              <Button className="btn-block" variant="primary" type="submit">
+                Add
+              </Button>
+            </Form>
+          </div>
+          <div className="col">
+            <h2>Delete a product</h2>
+            <Form className="mx-5" onSubmit={deleteProduct}>
+              Name
+              <Form.Group onChange={(e) => setDname(e.target.value)} as={Col}>
+                <Form.Control />
+              </Form.Group>
+              <Button className="btn-block" variant="primary" type="submit">
+                Delete
+              </Button>
+            </Form>
+          </div>
         </div>
       </div>
-
-
     </div>
   );
 }
