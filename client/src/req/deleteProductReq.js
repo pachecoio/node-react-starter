@@ -1,16 +1,17 @@
-import url from './url';
-const axios = require('axios')
+import url from "./url";
+const axios = require("axios");
 
-export default async (name)=>{
+const d = async (name) => {
   await axios
-    .post(url+`/api/product/remove`, {
-      "name": name,
+    .post(url + `/api/product/remove`, {
+      name: name,
     })
-    .then(res => {
+    .then((res) => {
       console.log("Success.");
       // console.log(res)
     })
-    .catch(error => {
-      console.error(error)
-    })
-}
+    .catch((error) => {
+      console.error(error);
+    });
+};
+export default d;

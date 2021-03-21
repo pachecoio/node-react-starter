@@ -1,7 +1,7 @@
 import url from './url';
 const axios = require('axios')
 
-export default async (name, desc)=>{
+const d = async (name, desc)=>{
   await axios
     .post(url+`/api/product/add`, {
       "name": name,
@@ -15,3 +15,4 @@ export default async (name, desc)=>{
       console.error(error)
     })
 }
+export default d;
