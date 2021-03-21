@@ -61,7 +61,7 @@ function App() {
         {products && products.length > 0 ? (
           products.map((product) => renderProduct(product))
         ) : (
-          <div class="display-4 mx-auto alert alert-danger" role="alert">
+          <div className="display-4 mx-auto alert alert-danger" role="alert">
             No product found
           </div>
         )}

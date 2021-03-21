@@ -1,4 +1,6 @@
 # Simple MERN based Product application
+## Deployments
+ - [gh-pages](https://akcgjc007.github.io/MERN-App/)
 ## Description
 A simple fullstack starter application using:
  - MongoDB
