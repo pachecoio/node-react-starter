@@ -1,8 +1,6 @@
 # Simple MERN based Product application
 ## Deployments
- - [gh-pages **failing**](https://akcgjc007.github.io/MERN-App/)
- - [fleek-Internet-computer **failing**](https://hsvvd-4yaaa-aaaab-qal4q-cai.ic.fleek.co)
- - [vercel]()
+ - [Vercel](https://mern-app-akcgjc007.vercel.app/)
 ## Description
 A simple fullstack starter application using:
  - MongoDB
