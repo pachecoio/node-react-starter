@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 // requests
-import productService from "./req/loadAll";
+import getAll from "./req/loadAll";
 import addProductReq from "./req/addProductReq";
 import deleteProductReq from "./req/deleteProductReq";
 import { Form, Button, Col } from "react-bootstrap";
@@ -18,7 +18,7 @@ function App() {
   });
 
   const getProducts = async () => {
-    let res = await productService.getAll();
+    let res = await getAll();
     console.log(res);
     setproducts(res);
   };
