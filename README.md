@@ -1,30 +1,21 @@
-# node-react-starter
-A simple fullstack starter application using Node.js, Express.js, React.js and MongoDB
+# Simple MERN based Product application
+## Vercel deployments
+ - [**mern-app-five.vercel.app**](https://mern-app-five.vercel.app)
+## Description
+A simple fullstack starter application using:
+ - **MongoDB**
+ - **Express.js**
+ - **Node.js**
+ - **React.js**
 
-To run this project you need to add the backend and frontend dependencies.
-In the root of the project run the following command
+## Features
+ - Add a product
+ - Delete a product
 
-```
-$ npm install
-```
+## Demo
+<img src="./images/2.png" width=600 />
+<img src="./images/1.png" width=600 />
 
-Then, navigate to the client directory and run the following command:
-
-```
-recommended
-$ yarn
-```
-or
-```
-npm install
-```
-
-### Running the application
-
-*To run this application, you must have MongoDB up and running*
-
-To run the application, use the following command:
-
-```
-$ npm run dev
-```
+## How to run?
+ - `yarn; cd client; yarn; cd ..`
+ - `yarn dev`
